@@ -4,8 +4,7 @@ print_status() {
     printf "[*] ${1}...\n"
 }
 
-get_tar() {
-    wget -c https://github.com/peterQiu/download/blob/master/jdk8_aarch64.tar.gz -O jdk8_aarch64.tar.gz
+install_jdk() {
     tar -xf jdk8_aarch64.tar.gz -C $PREFIX/share
     chmod +x $PREFIX/share/bin/*
     mv $PREFIX/share/bin/* $PREFIX/bin
@@ -20,18 +19,17 @@ prepare(){
   termux-wake-lock
   pkg install proot
   termux-chroot
+  pkg install git
+  cd $home
+  git clone https://github.com/peterQiu/download.git
 }
 prepare_mysql(){
   pkg install mariadb
-  cd $home
   mysql_install_db
   nohup mysqld &
   echo -e '\n'
 }
 prepare_asset_sql(){
-  wget -c https://github.com/peterQiu/download/blob/master/database.sql -O database.sql
-  wget -c https://github.com/peterQiu/download/blob/master/schema.sql -O schema.sql
-  wget -c https://github.com/peterQiu/download/blob/master/data.sql -O data.sql
   sleep 5
   mysql < ./database.sql
   mysql < ./schema.sql
@@ -39,15 +37,14 @@ prepare_asset_sql(){
 }
 
 prepare_asset_jar(){
-  wget -c https://github.com/peterQiu/download/blob/master/asset.jar -O asset.jar
   nohup java -jar asset.jar &
   echo -e '\n'
 }
 
 print_status "prepare"
 prepare
-print_status "getting tar file and setting all things"
-get_tar
+print_status "installing jdk"
+install_jdk
 print_status "cleaning up"
 cleanup
 print_status "installing mysql"
