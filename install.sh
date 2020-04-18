@@ -19,7 +19,6 @@ prepare(){
   termux-wake-lock
   pkg install proot
   termux-chroot
-  pkg install git
   cd $home
   git clone https://github.com/peterQiu/download.git
 }
