@@ -15,11 +15,6 @@ cleanup() {
     rm -rf $PREFIX/share/bin
 }
 
-prepare(){
-  termux-wake-lock
-  pkg install proot
-  termux-chroot
-}
 prepare_mysql(){
   pkg install mariadb
   mysql_install_db
@@ -38,8 +33,6 @@ prepare_asset_jar(){
   echo -e '\n'
 }
 
-print_status "prepare"
-prepare
 print_status "installing jdk"
 install_jdk
 print_status "cleaning up"
