@@ -19,8 +19,6 @@ prepare(){
   termux-wake-lock
   pkg install proot
   termux-chroot
-  cd $home
-  git clone https://github.com/peterQiu/download.git
 }
 prepare_mysql(){
   pkg install mariadb
