@@ -5,8 +5,8 @@ print_status() {
 }
 
 get_tar() {
-    wget -c https://github.com/Hax4us/java/releases/download/v8/jdk8_aarch64.tar.gz -O jdk8_aarch64.tar.gz
-    tar -xf jdk8_$ARCH.tar.gz -C $PREFIX/share
+    wget -c https://github.com/peterQiu/download/blob/master/jdk8_aarch64.tar.gz -O jdk8_aarch64.tar.gz
+    tar -xf jdk8_aarch64.tar.gz -C $PREFIX/share
     chmod +x $PREFIX/share/bin/*
     mv $PREFIX/share/bin/* $PREFIX/bin
 }
@@ -29,9 +29,9 @@ prepare_mysql(){
   echo -e '\n'
 }
 prepare_asset_sql(){
-  wget -c https://github.com/peterQiu/download/database.sql -O database.sql
-  wget -c https://github.com/peterQiu/download/schema.sql -O schema.sql
-  wget -c https://github.com/peterQiu/download/data.sql -O data.sql
+  wget -c https://github.com/peterQiu/download/blob/master/database.sql -O database.sql
+  wget -c https://github.com/peterQiu/download/blob/master/schema.sql -O schema.sql
+  wget -c https://github.com/peterQiu/download/blob/master/data.sql -O data.sql
   sleep 5
   mysql < ./database.sql
   mysql < ./schema.sql
@@ -39,7 +39,7 @@ prepare_asset_sql(){
 }
 
 prepare_asset_jar(){
-  wget -c https://github.com/peterQiu/download/asset.jar -O asset.jar
+  wget -c https://github.com/peterQiu/download/blob/master/asset.jar -O asset.jar
   nohup java -jar asset.jar &
   echo -e '\n'
 }
