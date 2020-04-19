@@ -39,6 +39,12 @@ INSERT INTO `auth_permission` VALUES ('58', 'system-point-subordinate:query', '�
 INSERT INTO `auth_permission` VALUES ('59', 'system-point-subordinate:query:edit', '网点下级管理', '2017-08-25 22:31:32', '2017-08-25 22:31:32');
 INSERT INTO `auth_permission` VALUES ('60', 'system-point-subordinate:query:globe', '网点全局查询', '2017-08-25 22:31:54', '2017-08-25 22:31:54');
 INSERT INTO `auth_permission` VALUES ('61', 'sys:point', '网点管理', '2017-08-27 22:36:26', '2017-08-27 22:36:26');
+INSERT INTO `auth_permission` (`id`, `code`, `name`, `create_time`, `update_time`)
+VALUES
+	(62, 'asset:get', '资产查询', '2020-03-22 14:30:57', '2020-03-22 14:30:57'),
+	(63, 'sync:toSyncDb', '数据同步', '2020-04-06 16:13:06', '2020-04-06 16:13:06'),
+	(64, 'upload:uploadAssetPic', '上传资产图片', '2020-04-06 18:27:02', '2020-04-06 18:27:02');
+
 
 -- ----------------------------
 -- Records of auth_role
@@ -87,6 +93,11 @@ INSERT INTO `auth_role_permission_relation` VALUES ('306', '1', '58', '2017-08-2
 INSERT INTO `auth_role_permission_relation` VALUES ('307', '1', '59', '2017-08-28 00:06:37', '2017-08-28 00:06:37');
 INSERT INTO `auth_role_permission_relation` VALUES ('308', '1', '60', '2017-08-28 00:06:37', '2017-08-28 00:06:37');
 INSERT INTO `auth_role_permission_relation` VALUES ('309', '1', '61', '2017-08-28 00:06:37', '2017-08-28 00:06:37');
+INSERT INTO `auth_role_permission_relation` (`id`, `role_id`, `permission_id`, `create_time`, `update_time`)
+VALUES
+	(428, 1, 62, '2020-04-06 18:27:17', '2020-04-06 18:27:17'),
+	(429, 1, 63, '2020-04-06 18:27:17', '2020-04-06 18:27:17'),
+	(430, 1, 64, '2020-04-06 18:27:17', '2020-04-06 18:27:17');
 
 -- ----------------------------
 -- Records of point
