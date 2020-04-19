@@ -13,25 +13,12 @@ prepare_jdk() {
 
 prepare_mysql(){
   pkg install mariadb
-  mysql_install_db
-  nohup mysqld &
-  echo -e '\n'
-}
-prepare_asset_sql(){
-  sleep 5
-  mysql < ./database.sql
-  mysql < ./schema.sql
-  mysql < ./data.sql
 }
 
-print_status "prepare jdk"
-prepare_jdk
-print_status "cleaning up"
-cleanup
-print_status "prepare mysql"
+print_status "prepare install mysql "
 prepare_mysql
-print_status "preparing asset sql"
-prepare_asset_sql
+print_status "prepare install jdk "
+prepare_jdk
 print_status "finished"
 
 
