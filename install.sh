@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/sh
 
+print_status() {
+    printf "[*] ${1}...\n"
+}
 prepare_jdk() {
     tar -xf jdk8_aarch64.tar.gz -C $PREFIX/share
     chmod +x $PREFIX/share/bin/*
